@@ -11,15 +11,14 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class DriveSubsystem extends SubsystemBase {
 
-  private CANSparkMax leftFront, leftRear, rightFront, rightRear, elevator;
+  private CANSparkMax leftFront, leftRear, rightFront, rightRear;
   private DifferentialDrive differentialDrive;
 
   public DriveSubsystem() {
     leftFront = new CANSparkMax(1, MotorType.kBrushless);
     leftRear = new CANSparkMax(2, MotorType.kBrushless);
     rightFront = new CANSparkMax(3, MotorType.kBrushless);
-    rightRear = new CANSparkMax(4, MotorType.kBrushless);
-    elevator = new CANSparkMax(5, MotorType.kBrushless);
+    rightRear = new CANSparkMax(4, MotorType.kBrushless);    
 
     leftRear.follow(leftFront);
     rightRear.follow(rightFront);
@@ -47,17 +46,17 @@ public class DriveSubsystem extends SubsystemBase {
     differentialDrive.arcadeDrive(0, -speed);
   }
 
-  public void elevatorUp(double speed) {
-    elevator.set(speed);
-  }
+  // public void elevatorUp(double speed) {
+  //   elevator.set(speed);
+  // }
 
-  public void elevatorDown(double speed) {
-    elevator.set(-speed);
-  }
+  // public void elevatorDown(double speed) {
+  //   elevator.set(-speed);
+  // }
 
-  public void elevatorStop() {
-    elevator.set(0);
-  }
+  // public void elevatorStop() {
+  //   elevator.set(0);
+  // }
 
   public void stop() {
     differentialDrive.arcadeDrive(0, 0);

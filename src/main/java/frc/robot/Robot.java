@@ -13,16 +13,16 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
-  private final CANSparkMax leftFront = new CANSparkMax(1, MotorType.kBrushless);
-  private final CANSparkMax leftRear = new CANSparkMax(2, MotorType.kBrushless);
-  private final CANSparkMax rightFront = new CANSparkMax(3, MotorType.kBrushless);
-  private final CANSparkMax rightRear = new CANSparkMax(4, MotorType.kBrushless);
-  private DifferentialDrive differentialDrive = new DifferentialDrive(leftFront, rightFront);
+  // private final CANSparkMax leftFront = new CANSparkMax(1, MotorType.kBrushless);
+  // private final CANSparkMax leftRear = new CANSparkMax(2, MotorType.kBrushless);
+  // private final CANSparkMax rightFront = new CANSparkMax(3, MotorType.kBrushless);
+  // private final CANSparkMax rightRear = new CANSparkMax(4, MotorType.kBrushless);
+  // private DifferentialDrive differentialDrive = new DifferentialDrive(leftFront, rightFront);
 
   @Override
   public void robotInit() {
-    leftRear.setInverted(true);
-    rightRear.setInverted(true);
+    // leftRear.setInverted(true);
+    // rightRear.setInverted(true);
     m_robotContainer = new RobotContainer();
   }
 
@@ -70,7 +70,7 @@ public class Robot extends TimedRobot {
     double throttle = -Constants.Joystick.LEFT_Y_AXIS; // Use the left joystick's Y-axis to control throttle
     double turn = Constants.Joystick.RIGHT_X_AXIS; // Use the right joystick's X-axis to control turn
     // Call the arcade drive method to control the robot
-    differentialDrive.arcadeDrive(throttle, turn);
+    //differentialDrive.arcadeDrive(throttle, turn);
   }
 
   @Override

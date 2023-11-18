@@ -6,15 +6,17 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.commands.DriveBackwardCommand;
 import frc.robot.commands.DriveForwardCommand;
-import frc.robot.commands.ElevatorDownCommand;
-import frc.robot.commands.ElevatorUpCommand;
+import frc.robot.commands.LowerElevatorCommand;
+import frc.robot.commands.RaiseElevatorCommand;
 import frc.robot.commands.TurnLeftCommand;
 import frc.robot.commands.TurnRightCommand;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.ElevatorSubsystem;
 
 public class OI {
     private XboxController controller;
     private DriveSubsystem driveTrain;
+    private ElevatorSubsystem elevatorSubsystem;
 
     public OI(DriveSubsystem driveTrain) {
         controller = new XboxController(Constants.kControllerPort);
@@ -53,9 +55,9 @@ public class OI {
         } else if (getDriverRawButton(Constants.Controller.kXboxButtonY)) {
             return new TurnRightCommand(driveTrain,.5);
         } else if (getDriverRawButton(Constants.Controller.kXboxLeftBumper)) {
-            return new ElevatorUpCommand(driveTrain,.5);
+            return new RaiseElevatorCommand(elevatorSubsystem);
         } else if (getDriverRawButton(Constants.Controller.kXboxRightBumper)) {
-            return new ElevatorDownCommand(driveTrain,.5);
+            return new LowerElevatorCommand(elevatorSubsystem);
         } 
         
         /*else if (getDriverRawButton(Constants.Controller.kXboxLeftStick)) {
