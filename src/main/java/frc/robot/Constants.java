@@ -65,6 +65,15 @@ public final class Constants {
     public static final double kPDriveVel = 8.5;
   }
 
+  public static final class ElevatorConstants {
+    public static final int ELEVATORSUBSYS_LEFT_MOTOR = 4;
+    public static final int ELEVATORSUBSYS_RIGHT_MOTOR = 5;
+    public static final int RAISE_SPEED = 5;
+    public static final int LOWER_SPEED = 6;
+    public static final int RAISE_BUTTON_ID  =5;
+    public static final int LOWER_BUTTON_ID=6;
+  }
+
   public static final class OIConstants {
     public static final int kDriverControllerPort = 0;
   }

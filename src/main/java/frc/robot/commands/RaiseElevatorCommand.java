@@ -12,6 +12,7 @@ public class RaiseElevatorCommand extends CommandBase {
 
  @Override
  public void execute() {
+   System.out.println("In RaiseElevatorCommand");
     elevatorSubsystem.setSpeed(1);
  }
 

@@ -14,6 +14,7 @@ public class LowerElevatorCommand extends CommandBase {
    
     @Override
     public void execute() {
+      System.out.println("In LowerElevatorCommand");
        elevatorSubsystem.setSpeed(-1);
     }
    
