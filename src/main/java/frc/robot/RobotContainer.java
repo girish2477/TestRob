@@ -35,8 +35,8 @@ public class RobotContainer {
 
     // Example: raise the elevator with the "A" button and lower it with the "B"
     // button    
-    new JoystickButton(joystick, 1).whenPressed(new RaiseElevatorCommand(elevatorSubsystem));
-    new JoystickButton(joystick, 2).whenPressed(new LowerElevatorCommand(elevatorSubsystem));
+    // new JoystickButton(joystick, 1).whenPressed(new RaiseElevatorCommand(elevatorSubsystem));
+    // new JoystickButton(joystick, 2).whenPressed(new LowerElevatorCommand(elevatorSubsystem));
   }
 
   public Command getAutonomousCommand() {
