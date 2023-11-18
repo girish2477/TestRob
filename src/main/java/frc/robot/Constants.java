@@ -70,8 +70,8 @@ public final class Constants {
     public static final int ELEVATORSUBSYS_RIGHT_MOTOR = 5;
     public static final int RAISE_SPEED = 5;
     public static final int LOWER_SPEED = 6;
-    public static final int RAISE_BUTTON_ID  =5;
-    public static final int LOWER_BUTTON_ID=6;
+    public static final int RAISE_BUTTON_ID  =1;
+    public static final int LOWER_BUTTON_ID=2;
   }
 
   public static final class OIConstants {

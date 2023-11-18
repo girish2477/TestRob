@@ -14,7 +14,7 @@ import frc.robot.subsystems.ElevatorSubsystem;
 public class OI {
     private XboxController controller;
     private DriveSubsystem driveTrain;
-    private ElevatorSubsystem elevatorSubsystem;
+    //private ElevatorSubsystem elevatorSubsystem;
     public static Joystick leftJoystick = new Joystick(0);
     public static Joystick rightJoystick = new Joystick(1);
 
