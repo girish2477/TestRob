@@ -3,27 +3,41 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot;
+
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.DriveForwardCommand;
+import frc.robot.subsystems.DriveSubsystem;
 
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
-  // private final CANSparkMax leftFront = new CANSparkMax(1, MotorType.kBrushless);
-  // private final CANSparkMax leftRear = new CANSparkMax(2, MotorType.kBrushless);
-  // private final CANSparkMax rightFront = new CANSparkMax(3, MotorType.kBrushless);
-  // private final CANSparkMax rightRear = new CANSparkMax(4, MotorType.kBrushless);
-  // private DifferentialDrive differentialDrive = new DifferentialDrive(leftFront, rightFront);
+  private XboxController controller;
+  // public static CANSparkMax leftFront;
+  // public static CANSparkMax leftRear;
+  // public static CANSparkMax rightFront;
+  // public static CANSparkMax rightRear;
+  public static DifferentialDrive differentialDrive;
+  //private DriveSubsystem driveSubsystem;
 
   @Override
   public void robotInit() {
-    // leftRear.setInverted(true);
-    // rightRear.setInverted(true);
+    // leftFront = new CANSparkMax(1, MotorType.kBrushless);
+    // leftRear = new CANSparkMax(2, MotorType.kBrushless);
+    // rightFront = new CANSparkMax(3, MotorType.kBrushless);
+    // rightRear = new CANSparkMax(4, MotorType.kBrushless);
+    // differentialDrive = new DifferentialDrive(leftFront, rightFront);
+    //driveSubsystem = new DriveSubsystem();
     m_robotContainer = new RobotContainer();
+    // leftFront.setInverted(true); 
+    // rightFront.setInverted(true); 
+
+    controller = new XboxController(Constants.kControllerPort);
   }
 
   @Override
@@ -67,10 +81,9 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    double throttle = -Constants.Joystick.LEFT_Y_AXIS; // Use the left joystick's Y-axis to control throttle
-    double turn = Constants.Joystick.RIGHT_X_AXIS; // Use the right joystick's X-axis to control turn
-    // Call the arcade drive method to control the robot
-    //differentialDrive.arcadeDrive(throttle, turn);
+    // double throttle = -Constants.Joystick.LEFT_Y_AXIS; // Use the left joystick's Y-axis to control throttle
+    // double turn = Constants.Joystick.RIGHT_X_AXIS; // Use the right joystick's X-axis to control turn
+    // driveSubsystem.arcadeDrive(throttle, turn);
   }
 
   @Override

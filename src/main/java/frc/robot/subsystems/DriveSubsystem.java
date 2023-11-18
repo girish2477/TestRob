@@ -3,11 +3,12 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
-
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class DriveSubsystem extends SubsystemBase {
 
@@ -15,14 +16,12 @@ public class DriveSubsystem extends SubsystemBase {
   private DifferentialDrive differentialDrive;
 
   public DriveSubsystem() {
-    leftFront = new CANSparkMax(1, MotorType.kBrushless);
-    leftRear = new CANSparkMax(2, MotorType.kBrushless);
-    rightFront = new CANSparkMax(3, MotorType.kBrushless);
-    rightRear = new CANSparkMax(4, MotorType.kBrushless);    
-
+    leftFront = new CANSparkMax(Constants.DriveConstants.DRIVESUBSYS_LEFT_FRONT, MotorType.kBrushless);
+    leftRear = new CANSparkMax(Constants.DriveConstants.DRIVESUBSYS_LEFT_REAR, MotorType.kBrushless);
+    rightFront = new CANSparkMax(Constants.DriveConstants.DRIVESUBSYS_RIGHT_FRONT, MotorType.kBrushless);
+    rightRear = new CANSparkMax(Constants.DriveConstants.DRIVESUBSYS_RIGHT_REAR, MotorType.kBrushless);
     leftRear.follow(leftFront);
     rightRear.follow(rightFront);
-
     differentialDrive = new DifferentialDrive(leftFront, rightFront);
   }
 

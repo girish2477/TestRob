@@ -2,13 +2,10 @@ package frc.robot.OI;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.XboxController.Axis;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.commands.DriveBackwardCommand;
 import frc.robot.commands.DriveForwardCommand;
-import frc.robot.commands.LowerElevatorCommand;
-import frc.robot.commands.RaiseElevatorCommand;
 import frc.robot.commands.TurnLeftCommand;
 import frc.robot.commands.TurnRightCommand;
 import frc.robot.subsystems.DriveSubsystem;
@@ -24,7 +21,6 @@ public class OI {
     public OI(DriveSubsystem driveTrain) {
         controller = new XboxController(Constants.kControllerPort);
         this.driveTrain = driveTrain;
-
         configureButtonBindings();
     }
 
@@ -65,9 +61,21 @@ public class OI {
         double turnSpeed = Math.abs(leftY - rightY) / 2;
 
         if (Math.abs(moveForwardSpeed) > 0.1) {
-            return new DriveForwardCommand(driveTrain, moveForwardSpeed);
+            if (moveForwardSpeed > 0) {
+                System.out.println("moveForwardSpeed"+moveForwardSpeed);
+                return new DriveForwardCommand(driveTrain, moveForwardSpeed);
+            } else {
+                System.out.println("moveBackWardSpeed"+moveForwardSpeed);
+                return new DriveBackwardCommand(driveTrain, -moveForwardSpeed);
+            }
         } else if (Math.abs(turnSpeed) > 0.1) {
-            return new TurnLeftCommand(driveTrain, turnSpeed);
+            if (turnSpeed > 0) {
+                System.out.println("TurnRightCommand"+turnSpeed);
+                return new TurnRightCommand(driveTrain, turnSpeed);
+            } else {
+                System.out.println("TurnLeftCommand"+turnSpeed);
+                return new TurnLeftCommand(driveTrain, -turnSpeed);
+            }
         }
 
         return null;
@@ -97,6 +105,6 @@ public class OI {
          * return new CameraSwivelRightCommand(driveTrain,.5);
          * }
          */
-        
+
     }
 }

@@ -21,6 +21,15 @@ import edu.wpi.first.wpilibj.XboxController;
  */
 public final class Constants {
   public static final class DriveConstants {
+    public static final int DRIVESUBSYS_LEFT_FRONT = 0;
+    public static final int DRIVESUBSYS_LEFT_REAR = 1;
+    public static final int DRIVESUBSYS_RIGHT_FRONT = 2;
+    public static final int DRIVESUBSYS_RIGHT_REAR = 3;
+    // Joysticks
+    public static final int DRIVER_CONTROLLER = 0;
+    public static final int DRIVER_CONTROLLER_MOVE_AXIS = 1; // Change for your controller
+    public static final int DRIVER_CONTROLLER_ROTATE_AXIS = 2; // Change for your controller
+
     public static final int kLeftMotor1Port = 0;
     public static final int kLeftMotor2Port = 1;
     public static final int kRightMotor1Port = 2;
